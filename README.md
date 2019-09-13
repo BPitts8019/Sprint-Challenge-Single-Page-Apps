@@ -24,27 +24,28 @@ In this challenge, you will create a Single Page Application complete with Clien
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question.
 
-- [ ] Explain benefit(s) using `client-side routing`?
-> Answer:
-- [ ] What does AJAX stand for?
-> Answer:
-- [ ] What are `controlled components` in React?
-> Answer:
+- [x] Explain benefit(s) using `client-side routing`?
+> Answer: Speed is one of the biggest benefits client-side routing provides. Only one initial load of the site/app is required, then everything else is handled via AJAX allowing the user experience to be more fluid. Items on the screen are rendered via information gathered during the inital load and/or from AJAX requests rather than loading a separate HTML page. This removes uneccesary page refreshes and facilitates a smooth user experience as well.
+- [x] What does AJAX stand for?
+> Answer: Asynchronous Javascript and XML
+- [x] What are `controlled components` in React?
+> Answer: A controlled component is one where its value is controlled by the app's state rather than by the user's 
+browser.
 
 
 ## Project Set Up
 
 Follow these steps to set up and work on your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Add TL as collaborator on GitHub.
-- [ ] Clone your OWN version of Repo (Not Lambda's by mistake!).
-- [ ] Create a new Branch on the clone: `git checkout -b <firstName-lastName>`.
+- [x] Create a forked copy of this project.
+- [x] Add TL as collaborator on GitHub.
+- [x] Clone your OWN version of Repo (Not Lambda's by mistake!).
+- [x] Create a new Branch on the clone: `git checkout -b <firstName-lastName>`.
 - [ ] Implement the project on this branch, committing changes regularly.
 - [ ] Push commits: `git push origin <firstName-lastName>`.
-- [ ] **LOOK** at your project directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
-- [ ] **RUN** `yarn install` or `npm install` to retrieve the client-side dependencies.
-- [ ] **RUN** `yarn start` or `npm start` to fire up your React application.
+- [x] **LOOK** at your project directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
+- [x] **RUN** `yarn install` or `npm install` to retrieve the client-side dependencies.
+- [x] **RUN** `yarn start` or `npm start` to fire up your React application.
 
 
 #### Exceeded rate limits?

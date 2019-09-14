@@ -1,5 +1,6 @@
 import React from "react";
-import { Tab, Menu, Icon } from "semantic-ui-react";
+// import { Tab, Menu, Icon } from "semantic-ui-react";
+import {Nav, NavItem, NavLink as RSNavLink} from "reactstrap";
 import { NavLink } from "react-router-dom";
 
 // TODO: Add missing menu/tabs/nav below
@@ -13,15 +14,12 @@ import { NavLink } from "react-router-dom";
 export default function TabNav() {
    return (
       <>
-         <div clasName="ui top attached tabular menu">
-            <a clasName="active item">Home Page</a>
-            <a clasName="item">Characters</a>
-            <a clasName="item">Locations</a>
-            <a clasName="item">Episodes</a>
-         </div>
-         <div className="ui bottom attached segment">
-            <p></p>
-         </div>
+         <Nav tabs>
+            <NavItem className="active"><a>Home Page</a></NavItem>
+            <NavItem><RSNavLink>Characters</RSNavLink></NavItem>
+            <NavItem><RSNavLink>Locations</RSNavLink></NavItem>
+            <NavItem><RSNavLink>Episodes</RSNavLink></NavItem>
+         </Nav>
       </>
    );
 };

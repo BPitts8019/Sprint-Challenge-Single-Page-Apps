@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {Nav, NavItem, NavLink as RSNavLink, TabContent, TabPane} from "reactstrap";
+import React from "react";
+// import {Nav, NavItem, NavLink as RSNavLink, TabContent, TabPane} from "reactstrap";
 import { Route, NavLink } from "react-router-dom";
 
 import WelcomePage from "./WelcomePage.js";
@@ -15,11 +15,11 @@ import LocationsList from "./LocationsList";
 // https://react.semantic-ui.com/collections/breadcrumb/
 
 export default function TabNav() {
-   const [activeTab, setActiveTab] = useState(1);
-   const clickHandler = event => {
-      event.preventDefault();
-      setActiveTab(event.target.dataset.tabId);
-   }
+   // const [activeTab, setActiveTab] = useState(1);
+   // const clickHandler = event => {
+   //    event.preventDefault();
+   //    setActiveTab(event.target.dataset.tabId);
+   // }
 
    return (
       <>

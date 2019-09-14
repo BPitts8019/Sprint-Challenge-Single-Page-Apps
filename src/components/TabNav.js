@@ -1,6 +1,10 @@
 import React, {useState, useEffect} from "react";
 import {Nav, NavItem, NavLink as RSNavLink, TabContent, TabPane} from "reactstrap";
-import { NavLink } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
+
+import WelcomePage from "./WelcomePage.js";
+import CharacterList from "./CharacterList.js";
+import LocationsList from "./LocationsList";
 
 // TODO: Add missing menu/tabs/nav below
 
@@ -20,17 +24,15 @@ export default function TabNav() {
    return (
       <>
          <ul>
-            <li><a href="/" data-tabId="1" onClick={clickHandler}>Home Page</a></li>
-            <li><a href="/characters" data-tabId="2" onClick={clickHandler}>Characters</a></li>
-            <li><a href="/locations" data-tabId="3" onClick={clickHandler}>Locations</a></li>
-            <li><a href="/episodes" data-tabId="4" onClick={clickHandler}>Episodes</a></li>
+            <li><NavLink to="/">Home Page</NavLink></li>
+            <li><NavLink to="/characters">Characters</NavLink></li>
+            <li><NavLink to="/locations">Locations</NavLink></li>
+            {/* <li><NavLink href="/episodes">Episodes</NavLink></li> */}
          </ul>
-         <div className="tabStuff">
-            {(activeTab === 1)? <h4>Home Page</h4> : null}
-            {(activeTab === 2)? <h4>Characters Page</h4> : null}
-            {(activeTab === 3)? <h4>Locations Page</h4> : null}
-            {(activeTab === 4)? <h4>Episodes Page</h4> : null}
-         </div>
+         <Route exact path="/" component={WelcomePage} />
+         <Route path="/characters" component={CharacterList} />
+         <Route path="/locations" component={LocationsList} />
+         {/* <Route path="/episodes" component={WelcomePage} /> */}
       </>
       // <>
       //    <Nav tabs>

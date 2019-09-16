@@ -22,7 +22,7 @@ export default function LocationsList() {
       <section className="character-list grid-view">
          {
             (locList && locList.length > 0)
-            ? locList.map((location, index) => <LocationCard key={index} {...location} />)
+            ? locList.map(location => <LocationCard key={location.id} {...location} />)
             : <span>Loading...</span>
          }
       </section>

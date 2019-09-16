@@ -1,10 +1,6 @@
-import React from "react";
-// import {Nav, NavItem, NavLink as RSNavLink, TabContent, TabPane} from "reactstrap";
-import { Route, NavLink } from "react-router-dom";
-
-import WelcomePage from "./WelcomePage.js";
-import CharacterList from "./CharacterList.js";
-import LocationsList from "./LocationsList";
+import React, {useState} from "react";
+import { NavLink } from "react-router-dom";
+import {Menu, Tab} from "semantic-ui-react";
 
 // TODO: Add missing menu/tabs/nav below
 
@@ -15,46 +11,62 @@ import LocationsList from "./LocationsList";
 // https://react.semantic-ui.com/collections/breadcrumb/
 
 export default function TabNav() {
-   // const [activeTab, setActiveTab] = useState(1);
-   // const clickHandler = event => {
-   //    event.preventDefault();
-   //    setActiveTab(event.target.dataset.tabId);
-   // }
+   const [activeTab, setActiveTab] = useState("home");
+
+   const clickHandler = (event, ...rest) => {
+      // console.log(JSON.stringify(rest, null, 3));
+      setActiveTab(event.target.name);
+   }
+   // const panes = [
+   //    {
+   //       menuItem: "Home Page",
+   //       render: () => <Tab.Pane><NavLink to="/">Home Page</NavLink></Tab.Pane>
+   //    },
+   //    {
+   //       menuItem: "Characters",
+   //       render: () => <Tab.Pane><NavLink to="/characters">Characters</NavLink></Tab.Pane>
+   //    },
+   //    {
+   //       menuItem: "Locations",
+   //       render: () => <Tab.Pane><NavLink to="/locations">Locations</NavLink></Tab.Pane>
+   //    }
+   //    // {
+   //    //    menuItem: "home",
+   //    //    render: () => <Tab.Pane><NavLink to="/">Home Page</NavLink></Tab.Pane>
+   //    // },
+   // ];
+
 
    return (
-      <>
-         <ul>
-            <li><NavLink to="/">Home Page</NavLink></li>
-            <li><NavLink to="/characters">Characters</NavLink></li>
-            <li><NavLink to="/locations">Locations</NavLink></li>
-            {/* <li><NavLink href="/episodes">Episodes</NavLink></li> */}
-         </ul>
-         <Route exact path="/" component={WelcomePage} />
-         <Route path="/characters" component={CharacterList} />
-         <Route path="/locations" component={LocationsList} />
-         {/* <Route path="/episodes" component={WelcomePage} /> */}
-      </>
-      // <>
-      //    <Nav tabs>
-      //       <NavItem><RSNavLink href="/blah">Home Page</RSNavLink></NavItem>
-      //       <NavItem><RSNavLink href="/characters">Characters</RSNavLink></NavItem>
-      //       <NavItem><RSNavLink href="/locations">Locations</RSNavLink></NavItem>
-      //       <NavItem><RSNavLink href="/episodes">Episodes</RSNavLink></NavItem>
-      //    </Nav>
-      //    <TabContent>
-      //       <TabPane tabId="1">
-      //          <h4>Home tab</h4>
-      //       </TabPane>
-      //       <TabPane tabId="1">
-      //          <h4>Characters tab</h4>
-      //       </TabPane>
-      //       <TabPane tabId="1">
-      //          <h4>Locations tab</h4>
-      //       </TabPane>
-      //       <TabPane tabId="1">
-      //          <h4>Episodes tab</h4>
-      //       </TabPane>
-      //    </TabContent>
-      // </>
+      // <Menu secondary>
+      //    <Menu.Item 
+      //       name="home"
+      //       active={activeTab === "home"}
+      //       onClick={clickHandler}
+      //    >
+      //       <NavLink to="/">Home Page</NavLink>
+      //    </Menu.Item>
+      //    <Menu.Item 
+      //       name="characters"
+      //       active={activeTab === "characters"}
+      //       onClick={clickHandler}
+      //    >
+      //       <NavLink to="/characters">Characters</NavLink>
+      //    </Menu.Item>
+      //    <Menu.Item 
+      //       name="locations"
+      //       active={activeTab === "locations"}
+      //       onClick={clickHandler}
+      //    >
+      //       <NavLink to="/locations">Locations</NavLink>
+      //    </Menu.Item>
+      // </Menu>
+      <ul>
+         <li><NavLink to="/">Home Page</NavLink></li>
+         <li><NavLink to="/characters">Characters</NavLink></li>
+         <li><NavLink to="/locations">Locations</NavLink></li>
+         <li><NavLink to="/episodes">Episodes</NavLink></li>
+      </ul>
+      // <Tab panes={panes} />
    );
 };

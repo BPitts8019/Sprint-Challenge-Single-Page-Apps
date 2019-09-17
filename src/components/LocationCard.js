@@ -8,18 +8,12 @@ export default function LocationCard({ name, type, dimension, residents }) {
             <Card.Header>{name}</Card.Header>
             <Card.Description>{type} - {dimension}</Card.Description>
          </Card.Content>
-         <Card.Content className="extra right aligned">
+         <Card.Content extra className="right aligned">
             <Label>
                <Icon className="user" />
                {residents.length}
             </Label>
          </Card.Content>
       </Card>
-
-
-      // <div className="card ui">
-      //    <h3 className="ui">{name}</h3>
-      //    <h5></h5>
-      // </div>
    );
 }

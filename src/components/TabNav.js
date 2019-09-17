@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import { NavLink } from "react-router-dom";
-import {Menu, Tab} from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import {Menu, Icon} from "semantic-ui-react";
 
 // TODO: Add missing menu/tabs/nav below
 
@@ -13,60 +13,52 @@ import {Menu, Tab} from "semantic-ui-react";
 export default function TabNav() {
    const [activeTab, setActiveTab] = useState("home");
 
-   const clickHandler = (event, ...rest) => {
-      // console.log(JSON.stringify(rest, null, 3));
-      setActiveTab(event.target.name);
+   const clickHandler = (event, props) => {
+      setActiveTab(props.name);
    }
-   // const panes = [
-   //    {
-   //       menuItem: "Home Page",
-   //       render: () => <Tab.Pane><NavLink to="/">Home Page</NavLink></Tab.Pane>
-   //    },
-   //    {
-   //       menuItem: "Characters",
-   //       render: () => <Tab.Pane><NavLink to="/characters">Characters</NavLink></Tab.Pane>
-   //    },
-   //    {
-   //       menuItem: "Locations",
-   //       render: () => <Tab.Pane><NavLink to="/locations">Locations</NavLink></Tab.Pane>
-   //    }
-   //    // {
-   //    //    menuItem: "home",
-   //    //    render: () => <Tab.Pane><NavLink to="/">Home Page</NavLink></Tab.Pane>
-   //    // },
-   // ];
-
 
    return (
-      // <Menu secondary>
-      //    <Menu.Item 
-      //       name="home"
-      //       active={activeTab === "home"}
-      //       onClick={clickHandler}
-      //    >
-      //       <NavLink to="/">Home Page</NavLink>
-      //    </Menu.Item>
-      //    <Menu.Item 
-      //       name="characters"
-      //       active={activeTab === "characters"}
-      //       onClick={clickHandler}
-      //    >
-      //       <NavLink to="/characters">Characters</NavLink>
-      //    </Menu.Item>
-      //    <Menu.Item 
-      //       name="locations"
-      //       active={activeTab === "locations"}
-      //       onClick={clickHandler}
-      //    >
-      //       <NavLink to="/locations">Locations</NavLink>
-      //    </Menu.Item>
-      // </Menu>
-      <ul>
-         <li><NavLink to="/">Home Page</NavLink></li>
-         <li><NavLink to="/characters">Characters</NavLink></li>
-         <li><NavLink to="/locations">Locations</NavLink></li>
-         <li><NavLink to="/episodes">Episodes</NavLink></li>
-      </ul>
-      // <Tab panes={panes} />
+      <Menu secondary>
+         <Menu.Item 
+            name="home"
+            active={activeTab === "home"}
+            onClick={clickHandler}
+            as={Link}
+            to="/"
+         >
+            <Icon className="home" />
+            Home Page
+         </Menu.Item>
+         <Menu.Item 
+            name="characters"
+            active={activeTab === "characters"}
+            onClick={clickHandler}
+            as={Link}
+            to="/characters"
+         >
+            <Icon className="user" />
+            Characters
+         </Menu.Item>
+         <Menu.Item 
+            name="locations"
+            active={activeTab === "locations"}
+            onClick={clickHandler}
+            as={Link}
+            to="/locations"
+         >
+            <Icon className="globe" />
+            Locations
+         </Menu.Item>
+         <Menu.Item 
+            name="episodes"
+            active={activeTab === "episodes"}
+            onClick={clickHandler}
+            as={Link}
+            to="/episodes"
+         >
+            <Icon className="video" />
+            Episodes
+         </Menu.Item>
+      </Menu>
    );
 };

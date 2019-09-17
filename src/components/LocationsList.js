@@ -16,7 +16,7 @@ export default function LocationsList() {
          .catch(error => {
             console.error('Server Error', error);
          });
-   });
+   }, []);
 
    return (
       <section className="character-list grid-view">

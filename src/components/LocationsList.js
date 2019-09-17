@@ -16,13 +16,13 @@ export default function LocationsList() {
          .catch(error => {
             console.error('Server Error', error);
          });
-   });
+   }, []);
 
    return (
       <section className="character-list grid-view">
          {
             (locList && locList.length > 0)
-            ? locList.map((location, index) => <LocationCard key={index} {...location} />)
+            ? locList.map(location => <LocationCard key={location.id} {...location} />)
             : <span>Loading...</span>
          }
       </section>

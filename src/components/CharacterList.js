@@ -25,7 +25,7 @@ export default function CharacterList() {
       <section className="character-list grid-view">
          {
             (charList && charList.length > 0)
-            ? charList.map((character, index) => <CharacterCard key={index} {...character} />)
+            ? charList.map(character => <CharacterCard key={character.id} {...character} />)
             : <span>Loading...</span>
          }
       </section>

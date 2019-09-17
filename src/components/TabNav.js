@@ -1,10 +1,6 @@
-import React from "react";
-// import {Nav, NavItem, NavLink as RSNavLink, TabContent, TabPane} from "reactstrap";
-import { Route, NavLink } from "react-router-dom";
-
-import WelcomePage from "./WelcomePage.js";
-import CharacterList from "./CharacterList.js";
-import LocationsList from "./LocationsList";
+import React, {useState} from "react";
+import { Link } from "react-router-dom";
+import {Menu, Icon} from "semantic-ui-react";
 
 // TODO: Add missing menu/tabs/nav below
 
@@ -15,46 +11,54 @@ import LocationsList from "./LocationsList";
 // https://react.semantic-ui.com/collections/breadcrumb/
 
 export default function TabNav() {
-   // const [activeTab, setActiveTab] = useState(1);
-   // const clickHandler = event => {
-   //    event.preventDefault();
-   //    setActiveTab(event.target.dataset.tabId);
-   // }
+   const [activeTab, setActiveTab] = useState("home");
+
+   const clickHandler = (event, props) => {
+      setActiveTab(props.name);
+   }
 
    return (
-      <>
-         <ul>
-            <li><NavLink to="/">Home Page</NavLink></li>
-            <li><NavLink to="/characters">Characters</NavLink></li>
-            <li><NavLink to="/locations">Locations</NavLink></li>
-            {/* <li><NavLink href="/episodes">Episodes</NavLink></li> */}
-         </ul>
-         <Route exact path="/" component={WelcomePage} />
-         <Route path="/characters" component={CharacterList} />
-         <Route path="/locations" component={LocationsList} />
-         {/* <Route path="/episodes" component={WelcomePage} /> */}
-      </>
-      // <>
-      //    <Nav tabs>
-      //       <NavItem><RSNavLink href="/blah">Home Page</RSNavLink></NavItem>
-      //       <NavItem><RSNavLink href="/characters">Characters</RSNavLink></NavItem>
-      //       <NavItem><RSNavLink href="/locations">Locations</RSNavLink></NavItem>
-      //       <NavItem><RSNavLink href="/episodes">Episodes</RSNavLink></NavItem>
-      //    </Nav>
-      //    <TabContent>
-      //       <TabPane tabId="1">
-      //          <h4>Home tab</h4>
-      //       </TabPane>
-      //       <TabPane tabId="1">
-      //          <h4>Characters tab</h4>
-      //       </TabPane>
-      //       <TabPane tabId="1">
-      //          <h4>Locations tab</h4>
-      //       </TabPane>
-      //       <TabPane tabId="1">
-      //          <h4>Episodes tab</h4>
-      //       </TabPane>
-      //    </TabContent>
-      // </>
+      <Menu secondary>
+         <Menu.Item 
+            name="home"
+            active={activeTab === "home"}
+            onClick={clickHandler}
+            as={Link}
+            to="/"
+         >
+            <Icon className="home" />
+            Home Page
+         </Menu.Item>
+         <Menu.Item 
+            name="characters"
+            active={activeTab === "characters"}
+            onClick={clickHandler}
+            as={Link}
+            to="/characters"
+         >
+            <Icon className="user" />
+            Characters
+         </Menu.Item>
+         <Menu.Item 
+            name="locations"
+            active={activeTab === "locations"}
+            onClick={clickHandler}
+            as={Link}
+            to="/locations"
+         >
+            <Icon className="globe" />
+            Locations
+         </Menu.Item>
+         <Menu.Item 
+            name="episodes"
+            active={activeTab === "episodes"}
+            onClick={clickHandler}
+            as={Link}
+            to="/episodes"
+         >
+            <Icon className="video" />
+            Episodes
+         </Menu.Item>
+      </Menu>
    );
 };

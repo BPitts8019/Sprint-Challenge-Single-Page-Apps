@@ -1,14 +1,20 @@
 import React from "react";
+import {Card, Label, Icon} from "semantic-ui-react";
 
-export default function EpisodeCard ({name, air_date, epidsode, characters}) {
+export default function EpisodeCard ({name, air_date, episode, characters}) {
    return (
-      <div className="card ui">
-         <h2>{name}</h2>
-         <ul>
-            <li>Air Date: {air_date}</li>
-            <li>Code: {epidsode}</li>
-            <li>Characters: {characters.length}</li>
-         </ul>
-      </div>
+      <Card>
+         <Card.Content>
+            <Card.Header>{name}</Card.Header>
+            <Card.Meta className="date">{air_date}</Card.Meta>
+            <Card.Meta>{episode}</Card.Meta>
+         </Card.Content>
+         <Card.Content extra className="right aligned">
+            <Label>
+               <Icon className="user" />
+               {characters.length}
+            </Label>
+         </Card.Content>
+      </Card>
    );
 }

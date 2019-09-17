@@ -18,13 +18,5 @@ export default function CharacterCard ({name, image, species, status, location, 
             </Label>
          </Card.Content>
       </Card>
-      // <div className="card ui">
-      //    <h2>{name}</h2>
-      //    <ul>
-      //       <li>Species: {species}</li>
-      //       <li>Gender: {gender}</li>
-      //       <li>Status: {status}</li>
-      //    </ul>
-      // </div>
    );
 }
